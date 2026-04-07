@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+<h1>Products</h1>
+<form method="GET" action="/products">
+    <input type="number" name="min_price" placeholder="Min price">
+    <input type="number" name="max_price" placeholder="Max price">
+    <button type="submit">Filter</button>
+</form>
+<br>
+<a href="/add-product">Add Product</a>
+<hr>
+{% if products %}
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - ${{ product.price }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No products</p>
+{% endif %}
+
+</body>
+</html>
